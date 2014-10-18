@@ -200,7 +200,7 @@ int main(int argc, char *argv[])
 		long volume;
                 
                 volume = atol(buf); 
-                printf(volume);
+                printf("%ld\n",volume);
                 long min, max;
               
                 snd_mixer_t *handle;
