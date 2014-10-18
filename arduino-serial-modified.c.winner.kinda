@@ -223,7 +223,11 @@ int main(int argc, char *argv[])
     
  
             	snd_mixer_selem_set_playback_volume_all(elem, volume * max / 100);
-		snd_mixer_close(handle);
+		        
+		        printf("flushing receive buffer\n");
+                serialport_flush(fd);
+		        
+		        snd_mixer_close(handle);
             	
             	
 		}
