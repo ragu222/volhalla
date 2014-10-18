@@ -197,7 +197,7 @@ int main(int argc, char *argv[])
             	serialport_read_until(fd, buf, eolchar, buf_max, timeout);
             	if( !quiet ) printf("read string:");
             	printf("%s\n", buf);
-		long volume;
+		        long volume = 0;
                 
                 volume = atol(buf); 
                 printf("%ld\n",volume);
