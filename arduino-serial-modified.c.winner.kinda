@@ -198,13 +198,9 @@ int main(int argc, char *argv[])
             	serialport_read_until(fd, buf, eolchar, buf_max, timeout);
             	if( !quiet ) printf("read string:");
             	printf("%s\n", buf);
-		        int volume;
-		        int oldvolume;
                 
-                volume = atoi(buf); 
-                printf("%i\n",volume);
-                
-                if(volume != oldvolume){
+                long volume = (-2200 + (atol(buf)*23)); 
+                printf("%ld\n",volume);
                 
                 long min, max;
                 
@@ -227,16 +223,12 @@ int main(int argc, char *argv[])
                 snd_mixer_selem_get_playback_volume_range(elem, &min, &max);
     
  
-            	snd_mixer_selem_set_playback_volume_all(elem, volume * max / 100);
+            	snd_mixer_selem_set_playback_volume_all(elem, (-2200 + (volume * 23)));
             	
-            	oldvolume = volume;
 		        
-		        printf("flushing receive buffer\n");
-                serialport_flush(fd);
 		        
-		        snd_mixer_close(handle);
+		snd_mixer_close(handle);
             	
-            	}
 		}
             break;
     

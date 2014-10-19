@@ -37,7 +37,7 @@ endif
 
 #################  Common  ##################################################
 
-CFLAGS += $(INCLUDES) -O -Wall -std=gnu99
+CFLAGS += $(INCLUDES) -O -Wall -std=gnu99 -lasound
 
 
 all: arduino-serial-modified 
